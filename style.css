@@ -1,0 +1,43 @@
+/*Change the background color of the page & font family & color of text*/
+body {
+    background-color: blanchedalmond;
+    font-family: 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
+    color:brown;
+}
+
+/*Adjust the headers - center*/
+header {
+    width: 100%;
+    text-align: center;
+    background-color:wheat;
+    padding: 10px;
+}
+h2 {
+    width: 100%;
+    text-align: center;
+}
+h3 {
+    width: 100%;
+    text-align:center;
+}
+
+/*Center the paragraph*/
+p {
+    text-align: center;
+}
+
+/*Adjusting the image*/
+img {
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Adjusting the footer*/
+footer {
+    width: 100%;
+    float: left;
+    font-size:small;
+    font-weight: bold;
+    text-align: center;
+}
