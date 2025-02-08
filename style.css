@@ -41,3 +41,14 @@ footer {
     font-weight: bold;
     text-align: center;
 }
+
+/*Style the WELCOME message*/
+#welcome {
+    background-color: rgb(206, 138, 138);
+    color: black;
+    border: 2px solid black;
+    padding: 2px;
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+}
