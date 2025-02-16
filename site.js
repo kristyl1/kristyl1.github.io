@@ -1,5 +1,5 @@
 //Testing - File is linked correctly
-console.log("Testing Hello")
+//console.log("Testing Hello")
 
 const hours = new Date().getHours() // get the current hour
 
@@ -25,3 +25,11 @@ else if (hours >= 17 || hours < 4) {
 
 //Display the text message according to the time
 const DivWelcome = document.querySelector('#welcome').innerHTML = textmessage;
+
+//Assignment 4 - SECRET MESSAGE - ONLY ADD TO LOCALSTORAGE NOT WEBPAGE
+const key = "It's a secret to everybody."
+//Quote
+const secretmessage = "The only thing we have to fear is fear itself. -Franklin D Roosevelt"
+
+//Run the message to the local storage
+localStorage.setItem(key, secretmessage)
