@@ -81,3 +81,51 @@ setInterval(() => {
 },5000)
 
 showImages()
+
+
+//ASSIGNMENT 6 - TO DO LIST 
+//User input - textbox & button
+const todoList = document.querySelector('.todo-list')
+const userInput = document.getElementById('new-todo')
+const button = document.getElementById('addTask')
+
+//Get the to-do list from localStorage
+const todos = JSON.parse(localStorage.getItem('todo-list')) || [
+        { "text": "Buy milk", "completed": false },
+        { "text": "Walk the dog", "completed": false },
+        { "text": "Do homework", "completed": false }
+];
+//localStorage.setItem('todo-list', JSON.stringify(todos))
+
+//Create a function call renderTools - Create & Add new list items
+const renderTodos = () => { todoList.innerHTML = '';
+    todos.forEach(todo => {
+    //Create and add a new list items to the DOM
+    const li = document.createElement('li')
+    li.textContent = todo.text
+    todoList.append(li)
+    });
+};
+
+//Add new item to the list 
+function addList() {
+    const input = userInput.value.trim();
+    if(input) {
+        todos.push({ text: input, completed: false });
+
+        //save to local storage
+        localStorage.setItem('todo-list', JSON.stringify(todos))
+
+        //render the list to create add new item
+        renderTodos(input);
+
+        //Clear the input field
+        input.value='';
+    }
+}
+
+//Click event on button to addList
+button.addEventListener('click', addList);
+
+//Call the render function again to update the page
+renderTodos();
