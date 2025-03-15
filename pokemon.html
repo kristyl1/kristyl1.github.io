@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel ="stylesheet" href="style.css">
+   <!--<script src ="/site.js" defer></script>--> 
+</head>
+<body>
+    <div id="welcome"></div>
+    <header>
+        <h1>Pokemon</h1>
+    </header>
+    <nav><a href = "index.html">Homepage</a> |
+        <a href ="favorite.html">Favorites</a> |
+        <a href="pokemon.html">Pokemon</a></nav>
+    <h2>Pokemon I choose you...</h2>
+    <p id="name"></p>
+    <!--ASSIGNMENT 7 - API FETCH-->
+    <!--1.) Modify html to include a div element that will hold the image of the pokemon-->
+    <div id="img">
+        <!--<img alt="clefairy">-->
+    </div>
+</body>
+<script>
+    
+    //ASSIGNMENT 7 - API FETCH
+    //2.) Create arrow function called getRandomPokemon - fetch a random pokemon from the PokeAPI
+    const getRandomPokemon = async () => {
+        const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+        const response = await fetch(url)
+        const pokemon = await response.json()
+        return pokemon
+    }
+
+    //3.) Create an arrow function called renderPokemon - takes a pokemon object as a parameter - 
+    // function should create an image element & append it to the DOM....
+    const renderPokemon = async pokemon => {
+        const img = document.createElement('img')
+        // url of the image from the 'front_default' property
+        img.src = pokemon.sprites.front_default;
+        //name of the pokemon
+        img.alt = pokemon.name
+        
+        //display the image
+       const parentElement = document.getElementById('img');
+        parentElement.append(img)
+    }
+    
+    //4.) Have getRandomPokemon return pokemon object - call the renderPokemon function with the returned object
+    //don't have getRandomPokemon function call renderPokemon ..... have getRandomPokemon return pokemon object...
+    const setPokemon = async pokemon => {
+        const choosePokemon = await getRandomPokemon(pokemon)
+        renderPokemon(choosePokemon)
+
+        console.log(choosePokemon)
+
+    }
+    setPokemon();
+
+
+</script>
+</html>
